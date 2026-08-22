@@ -1289,7 +1289,7 @@ object RemoteConfig {
   @JvmStatic
   @get:JvmName("enableSoftwareVp9DecodeSoCList")
   val enableSoftwareVp9DecodeSoCList: Set<String> by remoteStringSet(
-    key = "android.calling.enableSoftwareVp9DecodeSocList",
+    key = "android.calling.enableSoftwareVp9DecodeSoCList",
     defaultValue = setOf(),
     hotSwappable = true
   )
