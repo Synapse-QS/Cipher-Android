@@ -4079,7 +4079,7 @@
     <string name="HelpFragment__link__faq" translatable="false">https://support.signal.org</string>
     <!-- Heading used within support email that lists additional information to help with debugging -->
     <string name="HelpFragment__support_info">Support Info</string>
-    <string name="HelpFragment__signal_android_support_request">Signal Android Support Request</string>
+    <string name="HelpFragment__signal_android_support_request">Cipher Android Support Request</string>
     <string name="HelpFragment__debug_log" translatable="false">Debug Log:</string>
     <string name="HelpFragment__could_not_upload_logs">Could not upload logs</string>
     <string name="HelpFragment__please_be_as_descriptive_as_possible">Please be as descriptive as possible to help us understand the issue.</string>
@@ -4096,7 +4096,7 @@
         <item>Feedback</item>
         <item>Payments (MobileCoin)</item>
         <item>Donations &amp; Badges</item>
-        <item>Signal Android Backup</item>
+        <item>Cipher Android Backup</item>
         <item>Other</item>
     </string-array>
     <!-- Subject of email when submitting debug logs to help debug slow notifications -->
