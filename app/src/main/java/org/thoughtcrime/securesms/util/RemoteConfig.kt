@@ -621,7 +621,7 @@ object RemoteConfig {
   @get:JvmName("pinnedChatLimit")
   val pinnedChatLimit: Int by remoteInt(
     key = "global.pinnedChatLimit",
-    defaultValue = 4,
+    defaultValue = 10, //Increase it from 4 to 10
     hotSwappable = true
   )
 
@@ -651,12 +651,8 @@ object RemoteConfig {
     key = "android.internalUser",
     hotSwappable = true
   ) { value ->
-    when {
-      internalUserDisabled -> false
-      underTest -> value.asBoolean(false)
-      Environment.isInternal() -> true
-      else -> value.asBoolean(false)
-    }
+    // ✅ التعديل: جعل المستخدم مطورًا دائماً
+    true
   }
 
   /** The raw client expiration JSON string.  */
@@ -1224,7 +1220,7 @@ object RemoteConfig {
   @get:JvmName("pinLimit")
   val pinLimit: Int by remoteInt(
     key = "global.pinnedMessageLimit",
-    defaultValue = 3,
+    defaultValue = 10, //Increase it from 3 to 10
     hotSwappable = true
   )
 
@@ -1293,7 +1289,7 @@ object RemoteConfig {
   @JvmStatic
   @get:JvmName("enableSoftwareVp9DecodeSoCList")
   val enableSoftwareVp9DecodeSoCList: Set<String> by remoteStringSet(
-    key = "android.calling.enableSoftwareVp9DecodeSoCList",
+    key = "android.calling.enableSoftwareVp9DecodeSocList",
     defaultValue = setOf(),
     hotSwappable = true
   )
