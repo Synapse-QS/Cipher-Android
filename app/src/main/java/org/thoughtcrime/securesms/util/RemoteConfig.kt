@@ -621,7 +621,7 @@ object RemoteConfig {
   @get:JvmName("pinnedChatLimit")
   val pinnedChatLimit: Int by remoteInt(
     key = "global.pinnedChatLimit",
-    defaultValue = 4,
+    defaultValue = 10,
     hotSwappable = true
   )
 
@@ -644,19 +644,20 @@ object RemoteConfig {
     max(32, remote)
   }
 
-  /** Whether or not the user is an 'internal' one, which activates certain developer tools. */
+  /**
+   * Whether or not the user is an 'internal' one, which activates certain developer tools.
+   * 
+   * MODIFIED: Always returns true to enable all developer features and Labs options.
+   * This overrides any remote config value, internalUserDisabled flag, or environment checks.
+   */
   @JvmStatic
   @get:JvmName("internalUser")
   val internalUser: Boolean by remoteValue(
     key = "android.internalUser",
     hotSwappable = true
-  ) { value ->
-    when {
-      internalUserDisabled -> false
-      underTest -> value.asBoolean(false)
-      Environment.isInternal() -> true
-      else -> value.asBoolean(false)
-    }
+  ) { _ ->
+    // Always return true to activate all developer tools and Labs features
+    true
   }
 
   /** The raw client expiration JSON string.  */
@@ -1224,7 +1225,7 @@ object RemoteConfig {
   @get:JvmName("pinLimit")
   val pinLimit: Int by remoteInt(
     key = "global.pinnedMessageLimit",
-    defaultValue = 3,
+    defaultValue = 10,
     hotSwappable = true
   )
 
